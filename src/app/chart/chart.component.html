@@ -1,0 +1,73 @@
+<div class="dashboard-container">
+  <div class="chart-section">
+    <h1 class="main-title">EmoGraph — Our Feelings, Visualized</h1>
+    <p class="subtitle">Every emotion tells a story — here’s ours.</p>
+
+<div class="chart-box" *ngIf="chartOptions.series">
+  <div class="responsive-scroll-wrapper">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [yaxis]="chartOptions.yaxis"
+      [stroke]="chartOptions.stroke"
+      [fill]="chartOptions.fill"
+      [markers]="chartOptions.markers"
+      [tooltip]="chartOptions.tooltip"
+      [dataLabels]="chartOptions.dataLabels"
+    ></apx-chart>
+  </div>
+</div>
+
+  </div>
+
+  <div class="right-dashboard">
+    <div class="positive-percentage-card">
+      <div class="info">
+        <p class="title">Positive Emotions</p>
+        <p class="subtitle">Weekly trend</p>
+      </div>
+      <div class="circle">
+        <span>{{ positiveRate }}%</span>
+      </div>
+    </div>
+
+    <div class="tips-grid">
+      <div class="tip-box">
+        <img src="/image/respirer.png" alt="Tip 1" />
+        <div>
+          <h4>Take a Deep Breath</h4>
+          <p>Three slow breaths to calm your mind.</p>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <img src="/image/pause.png" alt="Tip 2" />
+        <div>
+          <h4>Take an Active Break</h4>
+          <p>Two minutes of walking or stretching can help.</p>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <img src="/image/dormir.png" alt="Tip 3" />
+        <div>
+          <h4>Get Good Sleep</h4>
+          <p>7–8 hours for emotional balance and well-being.</p>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <img src="/image/exprimer.png" alt="Tip 4" />
+        <div>
+          <h4>Express Yourself</h4>
+          <p>Writing can help release thoughts and emotions.</p>
+        </div>
+      </div>
+<div class="emotion-meter-container" (click)="goToHome()" style="cursor: pointer;">
+  <img src="/image/hhh.png" alt="Mood Level Gauge" class="emotion-meter-image" />
+</div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="full-container">
+  <div class="left-side">
+    <div class="left-content">
+      <h1 class="big-title">Welcome to MoodMate</h1>
+      <p class="subtitle">Feel better, talk anytime. Your mental health companion.</p>
+      <img src="/image/vv1.png" alt="Therapy Session" class="therapy-img" />
+    </div>
+  </div>
+
+  <div class="right-side">
+    <div class="form-container">
+      <h1 class="app-title">MoodMate</h1>
+      <h2>Hello Again!</h2>
+      <p>Welcome back, you've been missed!</p>
+
+      <form (ngSubmit)="login()" #loginForm="ngForm" class="login-form">
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          email
+          #emailInput="ngModel"
+        />
+        <div *ngIf="emailInput.invalid && emailInput.touched" class="error">Valid email required</div>
+
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+          minlength="6"
+          #passwordInput="ngModel"
+        />
+        <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error">Password must be at least 6 characters</div>
+
+        <div class="forgot-password">
+  <a routerLink="/recover" style="font-size: 13px; color: #ed7085; text-decoration: none; margin: 0 5px;">Forgot Password?</a> |
+          <a routerLink="/register" class="register-link">Register Now</a>
+        </div>
+
+        <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Sign In</button>
+      </form>
+
+      <div class="or-divider">Or sign in with</div>
+
+      <button (click)="loginWithGoogle()" class="btn-google">
+        <img src="/image/logogoogle.png" alt="Google Logo" class="google-icon" />
+        <span>Sign in with Google</span>
+      </button>
+    </div>
+  </div>
+</div>

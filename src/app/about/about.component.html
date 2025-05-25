@@ -1,0 +1,28 @@
+<div class="page-container">
+
+  <h2 class="page-title">About MoodMate</h2> 
+   <p class="page-description">
+    MoodMate is an intelligent chatbot designed to support you through writing, reading, and voice assistance. 
+    It offers personalized advice at every stage of your journey. 
+    You can explore interactive stories, track your emotional state daily, and review your weekly mood history. 
+    Every week, a new emotional report is generated to help you reflect and grow. 
+    MoodMate is here to make sure you feel heard, guided, and empowered every step of the way.
+  </p>
+
+  <div class="card-grid">
+    <div *ngFor="let item of cards; let i = index"
+         class="card"
+         [style.gridColumn]="'span ' + item.colspan"
+         [style.gridRow]="'span ' + item.rowspan"
+         (mouseenter)="playVideo(i)"
+         (mouseleave)="pauseVideo(i)">
+      
+      <video #videoElem class="card-video" muted loop preload="auto" [attr.src]="item.video"></video>
+      
+      <div class="card-content">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

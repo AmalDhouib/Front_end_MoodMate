@@ -1,0 +1,88 @@
+<body>
+  <div class="video-background">
+    <video #bgVideo autoplay muted loop>
+      <source src="/image/bbb.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay"></div>
+  </div>
+  
+  
+
+  <img src="image/e2.png" class="hamburger-icon" (click)="toggleMenu()" alt="Menu Icon" />
+
+  <div class="responsive-menu" [class.open]="menuOpen">
+    <a href="#features" (click)="toggleMenu()">About US</a>
+    <a href="#about" (click)="toggleMenu()">About MoodMate</a>
+    <a href="#comments" (click)="toggleMenu()">View comments</a>
+
+    <ng-container *ngIf="!isLoggedIn">
+      <a routerLink="/login" (click)="toggleMenu()">Log in</a>
+      <a routerLink="/register" (click)="toggleMenu()">Create an account</a>
+    </ng-container>
+
+    <ng-container *ngIf="isLoggedIn">
+      <div style="text-align: center; color: white; margin-top: 10px;">
+        <div style="font-weight: bold; margin-bottom: 10px;">
+          👋 Welcome {{ fullName }}
+        </div>
+        <a (click)="logout()" style="color: white; font-weight: 600; cursor: pointer;">Logout</a>
+      </div>
+    </ng-container>
+  </div>
+
+  <nav class="navbar" [class.scrolled]="scrolled">
+    <div class="navbar-left">
+      <ng-container *ngIf="isLoggedIn">
+        <img src="/image/123.png" alt="Logout" class="logout-icon" (click)="logout()" title="Logout" />
+      </ng-container>
+      <a href="#features">About US</a>
+      <a href="#about">About MoodMate</a>
+      <a href="#comments">View comments</a>
+    </div>
+
+    <div class="navbar-center">
+      <span class="logo">MoodMate</span>
+    </div>
+
+    <div class="navbar-right">
+      <ng-container *ngIf="!isLoggedIn">
+        <button class="login-link" [routerLink]="'/login'">Log in</button>
+        <a routerLink="/register" class="btn-create">Create an account</a>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn">
+        <div class="user-profile" (click)="goToProfile()" title="Profile">
+          <img src="/image/login.png" alt="Profile Icon" class="profile-icon" />
+          <span>Welcome {{ fullName }}</span>
+        </div>
+      </ng-container>
+    </div>
+  </nav>
+
+  <div class="content">
+    <h1 class="fade-in">The AI companion that cares</h1>
+    <p class="fade-in" style="animation-delay: 0.3s">
+      Always here to listen and talk.<br />Always on your side.
+    </p>
+    <a class="btn-main fade-in" style="animation-delay: 0.6s" (click)="startChat()">Let's Start</a>
+    <div class="start-icon fade-in" style="animation-delay: 0.9s">
+      <img src="/image/p.png" alt="Start Chat Icon" />
+    </div>
+  </div>
+
+  <app-features-section id="features"></app-features-section>
+  <app-whoare id="whoare"></app-whoare>
+  <app-about id="about"></app-about>
+  <app-testimonial-carousel id="comments"></app-testimonial-carousel>
+
+  <div class="full-width-section">
+    <h2>MoodMate by the Numbers</h2>
+    <div class="stats">
+      <div><h3>20+ Countries</h3><p>Helping people worldwide</p></div>
+      <div><h3>10,000+ Users</h3><p>Active daily users</p></div>
+      <div><h3>300K+ Advices Delivered</h3><p>Relaxation and emotional support</p></div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</body>

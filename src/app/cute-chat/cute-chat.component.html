@@ -1,0 +1,82 @@
+<div class="chat-container">
+  <button
+    class="floating-toggle"
+    [ngClass]="{ 'shift-right': sidebarVisible }"
+    (click)="toggleSidebar()"
+    title="Toggle sidebar"
+  >
+    <img src="/image/toggle.png" alt="Toggle" />
+  </button>
+
+  <div class="sidebar" [ngClass]="{ show: sidebarVisible }">
+    <div class="sidebar-header">
+      <h3>Conversations</h3>
+    </div>
+
+    <button (click)="startNewConversation()" class="new-conversation-button">
+      Start New Conversation
+    </button>
+
+    <div class="chart-icon" (click)="goToChart()" title="View your emotional trends">
+      <img src="/image/5581426.png" alt="View chart" />
+    </div>
+
+    <ul>
+      <li *ngFor="let conv of conversations" (click)="loadConversation(conv.conversation_id)">
+        <span>💬</span>
+        <div>
+          <div class="mini-text">{{ conv.latest | date: 'EEE, MMM d • HH:mm' }}</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="home-button" (click)="goToHome()" title="Return to Home">
+      <img src="/image/h.png" alt="Home" />
+    </div>
+  </div>
+
+  <div class="main-chat">
+    <div class="chat-intro" *ngIf="chatHistory.length === 0">
+      <h2>Welcome to your safe space 💬</h2>
+      <p>Feel free to express yourself here. You're not alone.</p>
+    </div>
+
+    <div class="messages" id="chat-messages">
+      <div *ngFor="let msg of chatHistory" [ngClass]="msg.sender">
+        <button class="audio-button" (click)="playAudio(msg.text)" title="Listen">
+          <img src="/image/Speaker_Icon.png" alt="Audio" width="20" height="20" />
+        </button>
+
+        <p *ngIf="msg.sender === 'user'">{{ msg.text }}</p>
+        <p *ngIf="msg.sender === 'bot'" [innerHTML]="cleanBotText(msg.text)"></p>
+      </div>
+
+      <div *ngIf="isTyping" class="bot-typing">
+        <span class="dot-flashing"></span>
+        <span>Le bot écrit...</span>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <div class="input-with-mic">
+        <textarea
+          [(ngModel)]="message"
+          (keydown.enter)="sendMessage()"
+          (input)="adjustTextarea($event)"
+          class="auto-textarea"
+          rows="1"
+          placeholder="Écrivez votre message..."
+        ></textarea>
+
+        <img
+          src="/image/micro.png"
+          alt="Microphone"
+          class="mic-icon"
+          (click)="startListening()"
+          title="Speak"
+        />
+      </div>
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="full-container">
+  <div class="left-side">
+    <div class="left-content">
+      <h1 class="big-title">Join MoodMate</h1>
+      <p class="subtitle">Your journey to well-being starts here.</p>
+      <img src="/image/vv1.png" alt="Therapy Session" class="therapy-img" />
+    </div>
+  </div>
+
+  <div class="right-side">
+    <div class="form-container">
+      <h1 class="app-title">MoodMate</h1>
+      <h2>Create Account</h2>
+      <p>Join us and start your mental wellness journey.</p>
+
+      <form (ngSubmit)="register()" #registerForm="ngForm" class="login-form">
+
+        <input
+          type="text"
+          [(ngModel)]="fullName"
+          name="fullName"
+          placeholder="Enter your full name"
+          required
+          #fullNameInput="ngModel"
+        />
+        <div *ngIf="fullNameInput.invalid && fullNameInput.touched" class="error">Full name is required</div>
+
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          email
+          #emailInput="ngModel"
+        />
+        <div *ngIf="emailInput.invalid && emailInput.touched" class="error">Valid email required</div>
+
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+          minlength="6"
+          #passwordInput="ngModel"
+        />
+        <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error">Password must be at least 6 characters</div>
+
+        <input
+          type="password"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirm your password"
+          required
+          minlength="6"
+          #confirmPasswordInput="ngModel"
+        />
+        <div *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched" class="error">Please confirm your password</div>
+
+        <div class="forgot-password">
+          <a routerLink="/login" style="font-size: 13px; color: #ed7085; text-decoration: none; margin: 0 5px;">Already have an account?</a> 
+          <a routerLink="/login" class="register-link">Sign In</a>
+        </div>
+
+        <button type="submit" class="btn-login" [disabled]="registerForm.invalid">Register</button>
+      </form>
+
+      <div class="or-divider">Or sign up with</div>
+
+      <button (click)="registerWithGoogle()" class="btn-google">
+        <img src="/image/logogoogle.png" alt="Google Logo" class="google-icon" />
+        <span>Sign up with Google</span>
+      </button>
+    </div>
+  </div>
+</div>

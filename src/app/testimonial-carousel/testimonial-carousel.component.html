@@ -1,0 +1,34 @@
+<section class="testimonial-section">
+  <div class="header">
+    <h2>Meet MoodMate</h2>
+    <p>An AI companion who is eager to learn and see the world through your eyes. MoodMate is always ready to chat with you.</p>
+  </div>
+
+  <div class="carousel-container">
+    <button class="arrow left" (click)="prevSlide()">&#10094;</button>
+
+    <div class="carousel">
+      <div *ngFor="let testimonial of testimonials; let i = index"
+           [ngClass]="getCardClass(i)"
+           class="testimonial-card">
+        <div class="testimonial-content">
+          <div class="testimonial-text">
+            <p class="quote">{{ testimonial.text }}</p>
+            <div class="author">
+              <img class="author-img" [src]="testimonial.authorImage" alt="Author">
+              <div>
+                <h4>{{ testimonial.authorName }}</h4>
+                <p class="details">{{ testimonial.details }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-avatar">
+            <img [src]="testimonial.avatar" alt="Avatar">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="arrow right" (click)="nextSlide()">&#10095;</button>
+  </div>
+</section>

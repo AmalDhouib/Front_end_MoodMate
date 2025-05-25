@@ -1,0 +1,139 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  transition: all 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: white;
+  backdrop-filter: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.navbar.scrolled .logo,
+.navbar.scrolled .navbar-left a,
+.navbar.scrolled .navbar-right a,
+.navbar.scrolled .navbar-right button {
+  color: #333;
+}
+.navbar-right{
+    margin-right: 5%;
+}
+
+.navbar-left a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 30px;
+  transition: color 0.3s;
+}
+
+.navbar-left a:hover {
+  color: #ffdada;
+}
+
+.logout-icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.logout-icon:hover {
+  transform: scale(1.1);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-profile img {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.user-profile img:hover {
+  transform: scale(1.1);
+}
+
+.user-profile span {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.navbar.scrolled .user-profile span {
+  color: #333;
+}
+
+.btn-create {
+  background: #fa9393;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-create:hover {
+  background: #ffb6b6;
+  transform: scale(1.05);
+}
+
+.login-link {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 30px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.login-link:hover {
+  color: #ffdada;
+}
+
+.navbar.scrolled .login-link {
+  color: #333;
+}

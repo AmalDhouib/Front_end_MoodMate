@@ -1,0 +1,215 @@
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.chart-section {
+  flex: 1.7;
+  background-color: #f3f4f6;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  border: 1px solid #ffffff;
+  width: 100%;
+  max-width: 950px;
+}
+
+.chart-box {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+  margin-top: 10px;
+}
+
+.right-dashboard {
+  background: #f3f4f6;
+  padding: 20px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  height: auto;
+}
+
+.positive-percentage-card {
+  background: linear-gradient(to right, #ff6b6b, #ffb199);
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 18px rgba(255, 107, 107, 0.25);
+  animation: fadeIn 0.6s ease;
+}
+
+.positive-percentage-card .info {
+  flex: 1;
+}
+
+.positive-percentage-card .title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.positive-percentage-card .subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.positive-percentage-card .circle {
+  width: 70px;
+  height: 70px;
+  background: white;
+  border-radius: 50%;
+  color: #ff6b6b;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.tip-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.tip-box:hover {
+  transform: translateY(-3px);
+}
+
+.tip-box img {
+  width: 20px;
+  height: 20px;
+}
+
+.tip-box h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.tip-box p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.emotion-meter-container {
+  margin-top: 30px;
+  background-color: #ffffff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: 0.3s ease-in-out;
+  height: auto;
+  cursor: pointer;
+}
+
+.emotion-meter-container:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.emotion-meter-image {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.gauge-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+@media (max-width: 1024px) {
+  .tips-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-section,
+  .right-dashboard {
+    width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .positive-percentage-card .title,
+  .tip-box h4 {
+    font-size: 14px;
+  }
+
+  .tip-box p {
+    font-size: 12px;
+  }
+.responsive-scroll-wrapper {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .responsive-scroll-wrapper {
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  apx-chart {
+    min-width: 700px; 
+  }
+}
+
+}

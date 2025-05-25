@@ -1,0 +1,33 @@
+<nav class="navbar" [class.scrolled]="scrolled">
+
+  <div class="navbar-left">
+    <ng-container *ngIf="isLoggedIn">
+      <img src="/image/123.png" alt="Logout" class="logout-icon" (click)="logout()" title="Logout">
+    </ng-container>
+    
+    <a routerLink="/whoare">About US </a>
+
+    <a routerLink="/about">About MoodMate</a>
+    <a routerLink="/meet-mode">View comments</a>
+  </div>
+
+  <div class="navbar-center">
+    <span class="logo">MoodMate</span>
+  </div>
+
+  <div class="navbar-right">
+
+    <ng-container *ngIf="!isLoggedIn">
+      <button class="login-link" routerLink="/login">Log in</button>
+      <a routerLink="/register" class="btn-create">Create an account</a>
+    </ng-container>
+
+    <ng-container *ngIf="isLoggedIn">
+      <div class="user-profile" (click)="goToProfile()" title="Profile">
+        <img src="/image/login.png" alt="Profile Icon" class="profile-icon">
+        <span>Welcome {{ username }}</span>
+      </div>
+    </ng-container>
+
+  </div>
+</nav>
