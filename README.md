@@ -1,22 +1,54 @@
-# MoodMate Frontend
+# MoodMate Project
 
-Welcome to the **MoodMate Frontend**, the user interface for interacting with MoodMate — an intelligent emotion-aware chatbot and mood tracking assistant.
+Welcome to **MoodMate**, an intelligent emotion-aware chatbot and mood tracking assistant.
 
-This frontend allows users to chat with an AI-powered bot, visualize their emotional trends, and enjoy an intuitive, mobile-friendly experience.
+This repository contains information about both the **Frontend** and the **Backend** parts of MoodMate.
 
-## 🌟 Features
+---
 
-- 💬 Chat interface with real-time responses
-- 🎭 Emotion detection based on user input
-- 📊 Weekly emotion dashboard (bar chart, line chart, and gauge)
-- 🎙️ Voice recognition (speech-to-text)
-- 🔊 Text-to-speech for bot replies
-- 📱 Responsive design for all devices
+## 🖥️ Frontend
 
-## 🖼️ Screenshots
+The **MoodMate Frontend** is the user interface that allows users to:
 
-### 💬 Chat Interface
+- Chat with an AI-powered emotion-aware chatbot  
+- Visualize emotional trends over time  
+- Use voice recognition and text-to-speech features  
+- Enjoy a responsive design for all devices
+
+### 🌟 Frontend Features
+
+- Real-time chat interface  
+- Emotion detection on user inputs  
+- Weekly emotion dashboard (bar chart, line chart, satisfaction gauge)  
+- Speech-to-text (voice recognition)  
+- Text-to-speech for bot responses  
+
+### 🖼️ Screenshots
+
+#### Home Page  
+![Home Page](screenshots/homepage.png)
+
+#### Chat Interface  
 ![Chat Interface](screenshots/chat.png)
 
-### 📈 Emotion Dashboard
+#### Emotion Dashboard  
 ![Emotion Dashboard](screenshots/dashboard.png)
+
+---
+
+## ⚙️ Backend
+
+The **MoodMate Backend** provides:
+
+- Emotion recognition model inference  
+- REST API for chatbot interaction and data management  
+- Model files required for emotion detection
+
+### ⚠️ Important: Backend Repository & Model Files
+
+The backend code and the large **emotion detection model files are hosted in a separate GitHub repository**.
+
+To run the full MoodMate app, you **must:**
+
+1. Clone the backend repository from GitHub:  
+https://github.com/AmalDhouib/Backend_MoodMate.git
